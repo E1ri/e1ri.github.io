@@ -1,0 +1,23 @@
+
+
+body {
+ background-color: black;
+ margin: 0;
+}
+
+h1, h2 {
+    font-size: 3em;
+    animation-duration: 0.01s;
+    animation-name: textflicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes textflicker {
+    from {
+      text-shadow: 1px 0 0 #e43844ae, -2px 0 0 #e4384458;
+    }
+    to {
+      text-shadow: 2px 0.5px 2px #e43844ae, -1px -0.5px 2px #e4384458;
+    }
+}
