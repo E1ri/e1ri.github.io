@@ -6,12 +6,16 @@ body {
 h1,
 h2 {
   margin: 0;
-  font-size: 3em;
+  font-size: 9em;
   animation-duration: 0.01s;
   animation-name: textflicker;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   transition: font-size ease 0.2s;
+}
+
+h2 {
+  font-size: 2em;
 }
 
 @keyframes textflicker {
@@ -24,7 +28,9 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  h1,
+  h1 {
+    font-size: 6em;
+  }
   h2 {
     font-size: 1.5em;
   }
