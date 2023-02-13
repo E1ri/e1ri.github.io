@@ -1,39 +1,50 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
 }
 .text {
-    color: #e43844;
-    user-select: none;
+  color: #e43844;
+  user-select: none;
+  text-align: center;
 }
 
 .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .cursor::after {
-    height:3em;
-    width:2em;
-    content:'';
-    display:inline-block;
-    margin-left:3px;
-    background-color:#e43844;
-    animation-name: blink;
-    animation-duration: 0.6s;
-    animation-iteration-count: infinite;
-  }
+  height: 3em;
+  width: 2em;
+  content: "";
+  display: inline-block;
+  margin-left: 3px;
+  background-color: #e43844;
+  animation-name: blink;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  transition-property: height, width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
 
 @keyframes blink {
-    from {
-      opacity:1;
-      box-shadow: 1px 0 0 #e43844ae, -2px 0 0 #e4384458;
-    }
-    to {
-      opacity:0;
-      box-shadow: 2px 0.5px 2px #e43844ae, -1px -0.5px 2px #e4384458;
-    }
+  from {
+    opacity: 1;
+    box-shadow: 1px 0 0 #e43844ae, -2px 0 0 #e4384458;
+  }
+  to {
+    opacity: 0;
+    box-shadow: 2px 0.5px 2px #e43844ae, -1px -0.5px 2px #e4384458;
+  }
+}
+
+@media (max-width: 768px) {
+  .cursor::after {
+    height: 1.5em;
+    width: 1em;
+  }
 }
