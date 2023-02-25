@@ -5,7 +5,8 @@
   flex-direction: column;
   height: 100vh;
 }
-.text {
+.text,
+.code {
   color: #e43844;
   user-select: none;
   text-align: center;
@@ -42,9 +43,39 @@
   }
 }
 
+.text,
+.code {
+  margin: 0;
+  font-size: 9em;
+  animation-duration: 0.01s;
+  animation-name: textFlicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: font-size ease 0.2s;
+}
+
+.text {
+  font-size: 2em;
+}
+
+@keyframes textFlicker {
+  from {
+    text-shadow: 1px 0 0 #e43844ae, -2px 0 0 #e4384458;
+  }
+  to {
+    text-shadow: 2px 0.5px 2px #e43844ae, -1px -0.5px 2px #e4384458;
+  }
+}
+
 @media (max-width: 768px) {
   .cursor::after {
     height: 1.5em;
     width: 1em;
+  }
+  .code {
+    font-size: 6em;
+  }
+  .text {
+    font-size: 1.5em;
   }
 }

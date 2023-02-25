@@ -1,0 +1,18 @@
+@import "@/styles/vars";
+
+.main {
+  position: relative;
+  padding: 20px 8px 8px 8px;
+  border-bottom: 2px solid $border;
+  border-left: 2px solid $border;
+  border-right: 2px solid $border;
+  color: $font-2;
+  border-radius: 2px;
+  &__title {
+    position: absolute;
+    color: $font-2;
+    font-size: 2em;
+    top: -0.6em;
+    left: 0.2em;
+  }
+}
