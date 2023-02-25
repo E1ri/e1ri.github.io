@@ -1,17 +1,13 @@
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-
-interface IHeader {
-  className?: string;
-}
-
-export const Header: React.FC<IHeader> = ({ className }) => {
+import { Cinzel } from "@next/font/google";
+const cinzel = Cinzel({ subsets: ["latin"] });
+export const Header: React.FC = () => {
   return (
-    <header
-      className={classNames({ [styles.header]: true }, className && className)}
-    >
-      <div className={styles.header__logo}>0</div>
-      <div className={styles.header__title}>E1RI</div>
+    <header className={classNames(styles.header, cinzel.className)}>
+      <div className={styles.header__logo}>
+        PLACEHOLDER Placeholder placeholder
+      </div>
     </header>
   );
 };

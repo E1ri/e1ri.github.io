@@ -14,7 +14,7 @@ const font = localFont({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <Header className={font.className} />
+      <Header />
       <main className={font.className}>
         <Component {...pageProps} />
       </main>
