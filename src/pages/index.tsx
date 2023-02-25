@@ -7,10 +7,13 @@ const Home = () => {
     <>
       <Head>
         <title>e1ri</title>
+        <meta name="description" content="e1ri's homepage" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="favicon.ico" />
       </Head>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        {/* <DevPlaceholder /> */}
-        <div style={{ width: "400px", paddingTop: "100px" }}>
+        <DevPlaceholder />
+        {/* <div style={{ width: "400px", paddingTop: "100px" }}>
           <Box title="text only">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
@@ -36,7 +39,7 @@ const Home = () => {
               assumenda iusto maxime mollitia sit minima. Repellat, pariatur?
             </p>
           </Box>
-        </div>
+        </div> */}
       </div>
     </>
   );
