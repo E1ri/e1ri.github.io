@@ -5,9 +5,7 @@ const cinzel = Cinzel({ subsets: ["latin"] });
 export const Header: React.FC = () => {
   return (
     <header className={classNames(styles.header, cinzel.className)}>
-      <div className={styles.header__logo}>
-        PLACEHOLDER Placeholder placeholder
-      </div>
+      <div className={styles.header__logo}>OVERTHERE</div>
     </header>
   );
 };

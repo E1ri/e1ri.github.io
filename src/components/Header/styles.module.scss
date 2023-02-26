@@ -33,13 +33,15 @@
       animation-name: bubble;
       animation-iteration-count: infinite;
       animation-timing-function: ease;
-      transition-property: backdrop-filter, background-color, transform;
-      transition-duration: 0.4s;
+      transition-property: backdrop-filter, background-color, width, height;
+      transition-duration: 0.8s;
       transition-timing-function: ease;
     }
     &:hover::after {
       backdrop-filter: blur(1px);
       background-color: #75ffff6f;
+      width: 1.9em;
+      height: 1.9em;
     }
   }
 }

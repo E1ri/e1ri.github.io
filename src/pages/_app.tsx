@@ -1,21 +1,15 @@
 import "@/styles/normalize.scss";
 import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
-import localFont from "@next/font/local";
 import { Header } from "@/components/Header/Header";
+import { Cinzel } from "@next/font/google";
 
-const font = localFont({
-  src: [
-    { path: "../fonts/chicago-webfont.woff2" },
-    { path: "../fonts/chicago-webfont.woff" },
-  ],
-});
-
+const cinzel = Cinzel({ subsets: ["latin"] });
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Header />
-      <main className={font.className}>
+      <main className={cinzel.className}>
         <Component {...pageProps} />
       </main>
     </>
