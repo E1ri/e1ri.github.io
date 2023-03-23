@@ -4,6 +4,25 @@
   flex-direction: column;
   align-items: flex-end;
   row-gap: 0.5em;
+  &__top_row {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 0.5em;
+  }
+  &__clue_row {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    column-gap: 0.5em;
+  }
+
+  &__clue_cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
+  }
 
   &__row {
     display: flex;
@@ -19,5 +38,9 @@
     height: 3em;
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.276);
+    transition: background-color 0.2s ease;
+    &_correct {
+      background-color: greenyellow;
+    }
   }
 }
