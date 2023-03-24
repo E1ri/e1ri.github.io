@@ -5,25 +5,11 @@
   height: 100vh;
 }
 .text {
-  color: #e43844;
   user-select: none;
   text-align: center;
   margin: 0;
   font-size: 9em;
-  animation-duration: 0.01s;
-  animation-name: textFlicker;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
   transition: font-size ease 0.2s;
-}
-
-@keyframes textFlicker {
-  from {
-    text-shadow: 1px 0 0 #e43844ae, -2px 0 0 #e4384458;
-  }
-  to {
-    text-shadow: 2px 0.5px 2px #e43844ae, -1px -0.5px 2px #e4384458;
-  }
 }
 
 @media (max-width: 768px) {
