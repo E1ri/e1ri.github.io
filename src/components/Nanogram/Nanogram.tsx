@@ -3,11 +3,14 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
-export const Nanogram = () => {
+interface INanogram {
+  setIsWin: (a?: any) => void;
+}
+
+export const Nanogram: React.FC<INanogram> = ({ setIsWin }) => {
   const [nanoArr, setNanoArr] = useState<any[][] | null>(null);
   const [cluesHoriz, setCluesHoriz] = useState<number[][] | null>(null);
   const [cluesVert, setCluesVert] = useState<number[][] | null>(null);
-  const [isWin, setIsWin] = useState<boolean>(false);
 
   useEffect(() => {
     const arr = nanoGen(10);
@@ -28,7 +31,6 @@ export const Nanogram = () => {
     changed[indexRow][elIndex].isPressed = true;
     setNanoArr(changed);
     gameOverChecker(changed);
-    console.log(changed);
   };
 
   const gameOverChecker = (grid: any[][]) => {

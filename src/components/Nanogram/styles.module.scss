@@ -1,5 +1,4 @@
 .nano {
-  padding-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -22,6 +21,7 @@
     justify-content: center;
     width: 3em;
     height: 3em;
+    user-select: none;
   }
 
   &__row {
