@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column-reverse;
   padding-top: 10em;
+  height: calc(100vh - 10em);
   &__text {
     margin-top: 3em;
   }

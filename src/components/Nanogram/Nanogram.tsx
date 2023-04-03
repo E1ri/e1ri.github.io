@@ -1,13 +1,17 @@
 import { clueInfo, nanoGen } from "@/utils/nanogram";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 interface INanogram {
-  setIsWin: (a?: any) => void;
+  setIsWin: Dispatch<SetStateAction<boolean>>;
+  setMistakesCount: Dispatch<SetStateAction<number>>;
 }
 
-export const Nanogram: React.FC<INanogram> = ({ setIsWin }) => {
+export const Nanogram: React.FC<INanogram> = ({
+  setIsWin,
+  setMistakesCount,
+}) => {
   const [nanoArr, setNanoArr] = useState<any[][] | null>(null);
   const [cluesHoriz, setCluesHoriz] = useState<number[][] | null>(null);
   const [cluesVert, setCluesVert] = useState<number[][] | null>(null);
@@ -24,7 +28,11 @@ export const Nanogram: React.FC<INanogram> = ({ setIsWin }) => {
     if (nanoArr === null) {
       return;
     }
-    if (el.content === 0 || el.isPressed === true) {
+    if (el.content === 0) {
+      setMistakesCount((prev) => prev + 1);
+      return;
+    }
+    if (el.isPressed === true) {
       return;
     }
     const changed = [...nanoArr];
