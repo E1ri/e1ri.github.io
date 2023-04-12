@@ -49,3 +49,14 @@
     }
   }
 }
+
+@media (max-width: 60em) {
+  .nano {
+    font-size: 10px;
+  }
+}
+@media (max-width: 40em) {
+  .nano {
+    font-size: 7px;
+  }
+}

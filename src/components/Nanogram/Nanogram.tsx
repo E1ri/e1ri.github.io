@@ -15,6 +15,15 @@ export const Nanogram: React.FC<INanogram> = ({
   const [nanoArr, setNanoArr] = useState<any[][] | null>(null);
   const [cluesHoriz, setCluesHoriz] = useState<number[][] | null>(null);
   const [cluesVert, setCluesVert] = useState<number[][] | null>(null);
+  const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
+
+  const onMouseDownHandler = () => {
+    setIsMouseDown(true);
+  };
+
+  const onMouseUpHandler = () => {
+    setIsMouseDown(false);
+  };
 
   useEffect(() => {
     const arr = nanoGen(10);
@@ -22,9 +31,24 @@ export const Nanogram: React.FC<INanogram> = ({
     setNanoArr(arr);
     setCluesHoriz(rows);
     setCluesVert(columns);
+    window.addEventListener("mousedown", onMouseDownHandler);
+    window.addEventListener("mouseup", onMouseUpHandler);
+
+    return () => {
+      window.removeEventListener("mousedown", onMouseDownHandler);
+      window.removeEventListener("mouseup", onMouseUpHandler);
+    };
   }, []);
 
-  const changeStatusHandler = (indexRow: number, elIndex: number, el: any) => {
+  const changeStatusHandler = (
+    indexRow: number,
+    elIndex: number,
+    el: any,
+    isClick?: boolean
+  ) => {
+    if (!isMouseDown && !isClick) {
+      return;
+    }
     if (nanoArr === null) {
       return;
     }
@@ -89,7 +113,12 @@ export const Nanogram: React.FC<INanogram> = ({
                       [styles.nano__cell]: true,
                       [styles.nano__cell_correct]: cell.isPressed,
                     })}
-                    onClick={() => changeStatusHandler(indexRow, index, cell)}
+                    onMouseOver={() =>
+                      changeStatusHandler(indexRow, index, cell)
+                    }
+                    onMouseDown={() =>
+                      changeStatusHandler(indexRow, index, cell, true)
+                    }
                     key={index}
                   />
                 );
