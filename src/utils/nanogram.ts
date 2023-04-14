@@ -1,4 +1,6 @@
-export const nanoGen = (size: number): number[][] => {
+import { ICluesInfo, INonoElement } from "@/interfaces/nonoArray";
+
+export const nanoGen = (size: number): INonoElement[][] => {
   const rows: any[][] = [];
   const columns: any[][] = [];
 
@@ -53,16 +55,16 @@ export const nanoGen = (size: number): number[][] => {
   return grid;
 };
 
-export const clueInfo = (grid: any[][]): any => {
+export const clueInfo = (grid: INonoElement[][]): ICluesInfo => {
   const rows: any[][] = [];
   const columns: any[][] = [];
-  let currentIndex = 0;
+  let currentIndex: number = 0;
 
   for (let x of grid) {
-    let repeatCount = 0;
-    let repeatCountHoriz = 0;
-    const column: any[] = [];
-    const row: any[] = [];
+    let repeatCount: number = 0;
+    let repeatCountHoriz: number = 0;
+    const column: number[] = [];
+    const row: number[] = [];
     for (let y of x) {
       if (y.content === 1) {
         repeatCount++;

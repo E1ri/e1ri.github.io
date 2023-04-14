@@ -1,7 +1,8 @@
 import { clueInfo, nanoGen } from "@/utils/nanogram";
 import classNames from "classnames";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
+import { INonoElement } from "@/interfaces/nonoArray";
 
 interface INanogram {
   setIsWin: Dispatch<SetStateAction<boolean>>;
@@ -12,23 +13,23 @@ export const Nanogram: React.FC<INanogram> = ({
   setIsWin,
   setMistakesCount,
 }) => {
-  const [nanoArr, setNanoArr] = useState<any[][] | null>(null);
+  const arrRef = useRef<INonoElement[][]>(nanoGen(10)); // todo: custom number as a prop
+  const [nanoArr, setNanoArr] = useState<INonoElement[][] | null>(null);
   const [cluesHoriz, setCluesHoriz] = useState<number[][] | null>(null);
   const [cluesVert, setCluesVert] = useState<number[][] | null>(null);
   const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
 
-  const onMouseDownHandler = () => {
+  const onMouseDownHandler = (): void => {
     setIsMouseDown(true);
   };
 
-  const onMouseUpHandler = () => {
+  const onMouseUpHandler = (): void => {
     setIsMouseDown(false);
   };
 
   useEffect(() => {
-    const arr = nanoGen(10);
-    const { rows, columns } = clueInfo(arr);
-    setNanoArr(arr);
+    const { rows, columns } = clueInfo(arrRef.current);
+    setNanoArr(arrRef.current);
     setCluesHoriz(rows);
     setCluesVert(columns);
     window.addEventListener("mousedown", onMouseDownHandler);
@@ -65,7 +66,7 @@ export const Nanogram: React.FC<INanogram> = ({
     gameOverChecker(changed);
   };
 
-  const gameOverChecker = (grid: any[][]) => {
+  const gameOverChecker = (grid: INonoElement[][]) => {
     for (let x of grid) {
       for (let y of x) {
         if (y.content === 1 && y.isPressed !== true) {
@@ -80,7 +81,7 @@ export const Nanogram: React.FC<INanogram> = ({
     <div className={styles.nano}>
       <div className={styles.nano__top_row}>
         {cluesVert !== null &&
-          cluesVert.map((el, index) => {
+          cluesVert.map((el: number[], index) => {
             return (
               <div className={styles.nano__clue_row} key={index}>
                 {el.map((el, index) => {
@@ -95,7 +96,7 @@ export const Nanogram: React.FC<INanogram> = ({
           })}
       </div>
       {nanoArr !== null &&
-        nanoArr.map((el, indexRow) => {
+        nanoArr.map((el: INonoElement[], indexRow) => {
           return (
             <div className={styles.nano__row} key={indexRow}>
               {cluesHoriz !== null &&
@@ -106,7 +107,7 @@ export const Nanogram: React.FC<INanogram> = ({
                     </div>
                   );
                 })}
-              {el.map((cell, index) => {
+              {el.map((cell: INonoElement, index) => {
                 return (
                   <div
                     className={classNames({

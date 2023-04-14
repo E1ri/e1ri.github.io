@@ -15,8 +15,10 @@ const Home = () => {
         <link rel="icon" href="favicon.ico" />
       </Head>
       <div className={styles.main}>
-        <div className={styles.main__text}>Mistakes: {mistakesCount}</div>
-        {isWin && <div className={styles.main__text}>WINWINWIN</div>}
+        <div className={styles.main__container}>
+          <div className={styles.main__counter}>mistakes: {mistakesCount}</div>
+          {isWin && <div className={styles.main__message}>WIN!!!</div>}
+        </div>
         <Nanogram setMistakesCount={setMistakesCount} setIsWin={setIsWin} />
       </div>
     </>

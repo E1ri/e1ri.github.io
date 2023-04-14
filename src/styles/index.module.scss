@@ -2,9 +2,18 @@
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
-  padding-top: 10em;
-  height: calc(100vh - 10em);
-  &__text {
-    margin-top: 3em;
+  height: calc(100vh - 1em);
+  width: 100vw;
+  &__container {
+    position: relative;
+    bottom: 0;
+  }
+  &__counter {
+    text-align: center;
+    line-height: 1em;
+  }
+  &__message {
+    text-align: center;
+    margin-top: 0.5em;
   }
 }
