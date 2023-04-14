@@ -7,11 +7,13 @@ import { INonoElement } from "@/interfaces/nonoArray";
 interface INanogram {
   setIsWin: Dispatch<SetStateAction<boolean>>;
   setMistakesCount: Dispatch<SetStateAction<number>>;
+  isWin: boolean;
 }
 
 export const Nanogram: React.FC<INanogram> = ({
   setIsWin,
   setMistakesCount,
+  isWin,
 }) => {
   const arrRef = useRef<INonoElement[][]>(nanoGen(10)); // todo: custom number as a prop
   const [nanoArr, setNanoArr] = useState<INonoElement[][] | null>(null);
@@ -47,6 +49,9 @@ export const Nanogram: React.FC<INanogram> = ({
     el: any,
     isClick?: boolean
   ) => {
+    if (isWin) {
+      return;
+    }
     if (!isMouseDown && !isClick) {
       return;
     }

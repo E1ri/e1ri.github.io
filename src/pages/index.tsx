@@ -19,7 +19,11 @@ const Home = () => {
           <div className={styles.main__counter}>mistakes: {mistakesCount}</div>
           {isWin && <div className={styles.main__message}>WIN!!!</div>}
         </div>
-        <Nanogram setMistakesCount={setMistakesCount} setIsWin={setIsWin} />
+        <Nanogram
+          setMistakesCount={setMistakesCount}
+          isWin={isWin}
+          setIsWin={setIsWin}
+        />
       </div>
     </>
   );

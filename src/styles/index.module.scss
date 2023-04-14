@@ -11,9 +11,11 @@
   &__counter {
     text-align: center;
     line-height: 1em;
+    user-select: none;
   }
   &__message {
     text-align: center;
     margin-top: 0.5em;
+    user-select: none;
   }
 }
