@@ -1,3 +1,5 @@
+@import "@/styles/vars";
+
 .main {
   display: flex;
   align-items: center;
@@ -7,6 +9,7 @@
   &__container {
     position: relative;
     bottom: 0;
+    color: $font;
   }
   &__counter {
     text-align: center;

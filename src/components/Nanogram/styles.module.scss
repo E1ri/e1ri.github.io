@@ -1,3 +1,5 @@
+@import "@/styles/vars";
+
 .nano {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,10 @@
   transform: translate(-50%, -50%);
   align-items: flex-end;
   row-gap: 0.5em;
+  color: $font;
+  transition-property: width, height;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
   &__top_row {
     display: flex;
     align-items: flex-end;

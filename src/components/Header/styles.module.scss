@@ -15,10 +15,11 @@
     display: flex;
     position: relative;
     align-items: center;
-    font-size: 2em;
-    color: black;
+    font-size: 3em;
+    color: $font;
     cursor: pointer;
     user-select: none;
+    transition: font-size 0.2s ease;
     &::after {
       position: absolute;
       top: 0.2em;
@@ -62,5 +63,11 @@
   100% {
     transform: translate(0.2em, -0.3em) scaleX(1) scaleY(1) scaleZ(1)
       rotateZ(180deg);
+  }
+}
+
+@media (max-width: 60em) {
+  .header__logo {
+    font-size: 2em;
   }
 }
