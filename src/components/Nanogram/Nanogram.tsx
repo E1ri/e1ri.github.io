@@ -15,7 +15,7 @@ export const Nanogram: React.FC<INanogram> = ({
   setMistakesCount,
   isWin,
 }) => {
-  const arrRef = useRef<INonoElement[][]>(nanoGen(10)); // todo: custom number as a prop
+  const arrRef = useRef<INonoElement[][]>(nanoGen(8)); // todo: custom number as a prop
   const [nanoArr, setNanoArr] = useState<INonoElement[][] | null>(null);
   const [cluesHoriz, setCluesHoriz] = useState<number[][] | null>(null);
   const [cluesVert, setCluesVert] = useState<number[][] | null>(null);

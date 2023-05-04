@@ -79,3 +79,8 @@
     font-size: 2em;
   }
 }
+@media (max-width: 40em) {
+  .header__logo {
+    font-size: 1.2em;
+  }
+}
