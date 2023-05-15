@@ -1,13 +1,10 @@
-import { SpringValue } from "@react-spring/three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { easing } from "maath";
 import React, { useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import * as THREE from "three";
 
-interface ITelegramThree {}
-
-export const TelegramThree: React.FC<ITelegramThree> = ({}) => {
+export const TelegramThree: React.FC = () => {
   const gltf = useLoader(GLTFLoader, "/telegram_3d-icon/scene.gltf");
   const ref = useRef<any>(null);
   const [dummy] = useState(() => new THREE.Object3D());

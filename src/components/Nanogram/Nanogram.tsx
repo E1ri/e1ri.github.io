@@ -2,7 +2,7 @@ import { clueInfo, nanoGen } from "@/utils/nanogram";
 import classNames from "classnames";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
-import { ICluesInfo, INonoElement } from "@/interfaces/nonoArray";
+import { INonoElement } from "@/interfaces/nonoArray";
 
 interface INanogram {
   setIsWin: Dispatch<SetStateAction<boolean>>;
@@ -89,13 +89,17 @@ export const Nanogram: React.FC<INanogram> = ({
           cluesVert.map((el: number[], index) => {
             return (
               <div className={styles.nano__clue_row} key={index}>
-                {el.map((el, index) => {
-                  return (
-                    <div key={index} className={styles.nano__clue_cell}>
-                      {el}
-                    </div>
-                  );
-                })}
+                {el.length > 0 ? (
+                  el.map((el, index) => {
+                    return (
+                      <div key={index} className={styles.nano__clue_cell}>
+                        {el}
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className={styles.nano__clue_cell} />
+                )}
               </div>
             );
           })}

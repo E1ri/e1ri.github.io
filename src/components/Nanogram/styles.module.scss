@@ -3,12 +3,11 @@
 .nano {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  // left: 50%;
+  // top: 50%;
   font-size: 14px;
   width: calc(30em + 4.5em);
-  transform: translate(-50%, -50%);
+  // transform: translate(-50%, -50%);
   align-items: flex-end;
   row-gap: 0.5em;
   color: $font;
